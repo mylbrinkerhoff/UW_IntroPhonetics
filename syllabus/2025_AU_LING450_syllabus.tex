@@ -1,0 +1,518 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, letterpaper]{article}
+
+%%BIBLIOGRAPHY- This uses biber/biblatex to generate bibliographies according to the
+%%Unified Style Sheet for Linguistics
+\usepackage[main=american, german]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+% \usepackage[backend=biber,
+%         style=unified,
+%         maxcitenames=3,
+%         maxbibnames=99,
+%         natbib,
+%         url=false]{biblatex}
+% \addbibresource{}
+% \setcounter{biburlnumpenalty}{100}  % allow URL breaks at numbers
+% \setcounter{biburlucpenalty}{100}   % allow URL breaks at uppercase letters
+% \setcounter{biburllcpenalty}{100}   % allow URL breaks at lowercase letters
+
+%%TYPOLOGY
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+\usepackage[hmargin=1in,vmargin=1in]{geometry}  %Margins          
+\usepackage{graphicx}	%Inserting graphics, pictures, images 		
+\usepackage{fontspec} %Selection of fonts must be ran in XeLaTeX or LuaLateX
+
+\usepackage{amssymb} %Math symbols
+\usepackage{amsmath} % Mathematical enhancements for LaTeX
+\usepackage{setspace} %Linespacing
+\usepackage{enumitem} %Allows for continuous numbering of lists over examples, etc.
+\usepackage{multirow} %Useful for combining cells in tablesbrew 
+\usepackage{fancyhdr} 
+\usepackage{hyperref} %allows for hyperlinks and pdf bookmarks
+\hypersetup{
+colorlinks = true,
+allcolors = Black,
+    linkcolor = DarkBlue,
+    citecolor = DarkGreen,
+    urlcolor = DarkMagenta
+}
+\usepackage[normalem]{ulem} %strike out text. Handy for syntax
+\usepackage[datesep=.]{datetime2}  % for date and time formatting
+\usepackage{longtable}  % multipage tables
+\usepackage{makecell}   % for manual line breaks
+\usepackage{booktabs}   % for professional looking tables
+\usepackage{titlesec}   % customize section titles
+\usepackage{array}      % for better arrays (eg matrices) in maths
+\usepackage{parskip}    % better handling of spacing between paragraphs
+
+
+% FANCYHDR Settings
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\CourseCode: \CourseTitle}}
+\rhead{\Semester}
+\lfoot{\textit{Last updated: \today}}
+\rfoot{\thepage}
+
+
+% Customization placeholders
+\newcommand{\CourseCode}{LING 450/550}
+\newcommand{\CourseTitle}{Introduction to Linguistic Phonetics}
+\newcommand{\Semester}{Autumn 2025}
+
+\newcommand{\InstructorName}{Myke Brinkerhoff}
+\newcommand{\InstructorEmail}{mlbrinke@uw.edu}
+\newcommand{\InstructorOfficeHours}{W 3:30-4:30 (\href{https://washington.zoom.us/j/96351372694?pwd=QBe9YQv6JczhqbXIqw3bdsRbsKBfG1.1}{Zoom}); F 10:30-11:30 (GUG 407A); or by appointment }
+
+\newcommand{\TAOneName}{Ty Gill-Saucier}
+\newcommand{\TAOneEmail}{ztgill@uw.edu}
+\newcommand{\TAOneOfficeHours}{M 3:30-4:30 (\href{https://washington.zoom.us/j/94177487053}{Zoom}); R 10:30-11:30 (GUG 407); or by appointment}
+
+\newcommand{\TATwoName}{NAME}
+\newcommand{\TATwoEmail}{XXX@uw.edu}
+\newcommand{\TATwoOfficeHours}{TBD (LOCATION)}
+
+\newcommand{\ClassTimeLocation}{TR 8:30--10:20am, CMU 120 and Zoom (550C students only)}
+
+\newcommand{\InstructorInfo}{
+    \InstructorName\ (\href{mailto:\InstructorEmail}{\InstructorEmail})\\
+        Office: \InstructorOfficeHours
+    }
+
+\newcommand{\TAOneInfo}{
+    \TAOneName\ (\href{mailto:\TAOneEmail}{\TAOneEmail})\\
+    Office: \TAOneOfficeHours
+    }
+
+%%FONTS
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont[Scale=MatchLowercase]{Libertinus Mono}
+
+%%MACROS
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\supr}[1]{\textsuperscript{#1}}
+\providecommand{\lsptoprule}{\midrule\toprule}
+\providecommand{\lspbottomrule}{\bottomrule\midrule}
+\newcommand{\fittable}[1]{\resizebox{\textwidth}{!}{#1}}
+
+\renewcommand{\arraystretch}{1.3} % spacing between rows
+
+\begin{document}
+
+
+\begin{center}
+    {\Large \textbf{Syllabus and Schedule}} %\\
+\end{center}
+% \thispagestyle{fancy}
+
+\begin{description}[style=multiline, leftmargin=3.5cm,font=\bfseries]
+    \item[Land Acknowledgment] The University of Washington acknowledges the Coast Salish peoples of this land, the land which touches the shared waters of all tribes and bands within the Suquamish, Tulalip and Muckleshoot nations.\footnote{For more information, please see \href{https://www.washington.edu/tribalrelations/}{UW's Office of Tribal Relations}.}
+    \item[Prerequisites] LING 200 or equivalent, or permission of instructor.
+    \item[Course website] \href{https://canvas.uw.edu/courses/1831698}{Canvas}
+    \item[Time and Place] \ClassTimeLocation 
+    \item[Instructor] \InstructorInfo
+    \item[Teaching Assistant] \TAOneInfo
+    \item[Required Readings]  All readings will be made available on Canvas.
+\end{description}
+
+
+%------------------------------------
+\section*{Course Description} \label{sec:course_information}
+%------------------------------------
+
+%------------------------------------
+\subsection*{Course overview} \label{sec:content}
+%------------------------------------
+
+This course provides a comprehensive introduction to the sounds of human language. This quarter you will be treated to a tour of the vocal tract, learning its parts and what they do, and you will learn a system of phonetic transcription due to the International Phonetic Association (IPA). At the end, you will be able to \textit{describe} any sound produced by human languages in terms of the physiology of the vocal tract; to correctly \textit{perceive} and \textit{produce} the sounds (often, anyway); and to \textit{transcribe} them so that any other IPA-trained person could also pronounce them. 
+
+%------------------------------------
+\subsection*{Course Learning Outcomes:} \label{sec:course_goals}
+%------------------------------------
+
+This course has seven primary learning outcomes. The first three are common to all courses in the Linguistics program. The remaining four are specific to this course. 
+
+By the end of this course, students will be able to:
+\begin{enumerate}
+    \item \textbf{Analytical thinking:}\\ Students will formulate testable hypotheses, and present them clearly and completely. Students will accurately and insightfully use relevant evidence to evaluate hypotheses and determine routes for future investigation.
+
+    \item \textbf{Writing:}\\ Students will formulate well-organized written arguments. At the micro-level, sentences will be grammatical, follow appropriate conventions, and strike an appropriate balance of clarity and complexity. At the macro-level, sentences will be linked together into paragraphs, and paragraphs into logical sections of a larger document.
+
+    \item \textbf{Properties of language:}\\ Students will apply analytical techniques to identify general properties of language, including but not limited to sound structure, word structure, sentence structure, meaning, use, and language processing. Students will explain the significance of relevant universal properties in some domain.
+
+    \item \textbf{Phonetic description:}\\ Students will be able to describe any sound using phonetic terminology and understand how it is produced in the vocal tract.
+
+    \item \textbf{Practical phonetic competence:}\\ Students will learn how to perceive and produce the sounds of human languages, including those not found in English.
+
+    \item \textbf{Phonetic transcription:}\\ will learn how to transcribe words and sounds using the alphabet of the International Phonetic Association, and how to read sounds transcribed in IPA.
+\end{enumerate}
+
+%------------------------------------
+\subsection*{Course Requirements} \label{sec:requirements}
+%------------------------------------
+
+This course makes use of a variety of assignments to help you achieve the learning outcomes listed above. It is important that you complete all assignments to the best of your ability and on time. 
+
+It is more important to me that you learn the material than it is that you get a perfect score on every assignment. If you are struggling with the material, please reach out to me or our TA during office hours or via email. We are here to help you succeed in this course.
+
+%------------------------------------
+\subsubsection*{Required Texts} \label{sec:texts}
+%------------------------------------
+Readings for the course will be made available on Canvas. You are expected to complete the readings before class and come prepared to discuss them. Readings will be drawn from three main sources: 
+\begin{description}[style=multiline, leftmargin=6cm,font=\bfseries]
+    \item[Ladefoged and Johnson (L\&J)] Ladefoged, Peter \& Keith Johnson. 2014. \textit{A course in phonetics}. 7th ed. Stamford, CT: Cengage Learning.
+    \item[Reetz and Jongman (R\&J)] Reetz, Henning \& Allard Jongman. 2020. \textit{Phonetics: Transcription, production, acoustics, and perception} (Blackwell Textbooks in Linguistics). Second edition. Hoboken: John Wiley \& Sons.
+
+    \item[Zsiga (Zs)] Zsiga, Elizabeth C. 2024. \textit{The sounds of language: An introduction to phonetics and phonology} (Linguistics in the World 3). 2nd ed. Hoboken, NJ: John Wiley \& Sons.
+\end{description}
+
+%------------------------------------
+\subsubsection*{Required Software} \label{sec:software}
+%------------------------------------
+
+You will need to install IPA-friendly fonts on your computer to complete transcription assignments as well as a way to input IPA characters. I recommend the free \href{https://software.sil.org/charis/}{Charis SIL} or \href{https://software.sil.org/andika/}{Andika New Basic} fonts. A free IPA keyboard is available at \href{https://ipa.typeit.org/}{TypeIt}. Instructions for installing and using these resources will be provided in class and as a handout on canvas.
+
+You will also need to install \href{https://www.fon.hum.uva.nl/praat/}{Praat}, a free software program for doing phonetic analysis. Instructions for installing and using Praat will be provided in class.
+
+%------------------------------------
+\subsubsection*{Other Materials} \label{sec:materials}
+%------------------------------------
+
+Classes will often have time devoted to practice activities, working on labs, and possibly project work. As such, bringing computers with technology listed above and headphones is strongly recommended.
+
+Some of the labs and assignments will require recording audio. I strongly recommend using a good quality microphone or headset for this purpose. If you do not have access to a good quality microphone or headset, please let me know as soon as possible so we can make arrangements. 
+
+%------------------------------------
+\section*{Course assessment/expectations} \label{sec:course_structure}
+%------------------------------------
+\begin{center}
+    \begin{tabular}{lll}
+    \textbf{Assignment} & \textbf{Percentage of Final Grade} & \textbf{Learning Outcome} \\ \hline
+    Participation & 5\% & 1, 4, 5, 6 \\
+    IPA Practice  & 10\% & 3, 5, 6 \\
+    Quizzes & 10\% & 1, 3, 4, 5, 6 \\
+    Labs & 15\% & 1, 2, 3, 4, 5, 6 \\
+    Homework assignments & 25\% & 1, 2, 3, 4, 5, 6 \\
+    Final Project & 20\% & 1, 2, 3, 4, 5, 6 \\
+    Final Exam & 15\% & 1, 3, 4, 5, 6 \\
+\end{tabular}
+\end{center}
+
+
+%------------------------------------
+\subsection*{Workload} \label{sec:workload}
+%------------------------------------
+
+A standard 5-credit course at the University of Washington expects students to spend about 15 hours per week on coursework. This includes time spent in class, as well as time spent on readings, assignments, studying for exams, and other course-related activities.
+
+Here is a simple breakdown of how you might spend your time for this course:
+\begin{itemize}
+    \item \textbf{In-class time:} 4 hours per week (2 hours per class, 2 classes per week)
+    \item \textbf{Quizzes:} 2 hours per week
+    \item \textbf{Assignments, readings, labs, and projects:} 8 hours per week
+    \item \textbf{Office hours, study groups, and other activities:} 0.5–1 hour per week
+\end{itemize}
+
+Everyone learns at their own pace, so these numbers are just estimates. If you find yourself spending much more or much less time than this, please reach out to me or the TA during office hours or by email. We want to help you manage your workload and succeed in the course.
+
+%------------------------------------
+\subsection*{Participation} \label{sec:participation}
+%------------------------------------
+
+Attending class is important for doing well in linguistics courses. Please come to class and stay engaged. Phonetics requires memorization, practice, and hands-on experience, which you get from classes, discussion boards, and office hours.
+
+Participation can include:
+\begin{itemize}
+    \item Taking part in class activities and discussions
+    \item Helping with group work and peer learning
+    \item Completing readings and preparing for class
+    \item Visiting office hours to ask questions or talk about course material
+    \item Joining online discussions or forums (if used)
+    \item Exit tickets or quick reflections on what you learned in class
+\end{itemize}
+
+Participation counts for \textbf{5\% of your final grade}.
+
+%------------------------------------
+\subsection*{IPA practice} \label{sec:transcription_exercises}
+%------------------------------------
+
+IPA practice exercises help you practice using the International Phonetic Alphabet (IPA) to write out words and sounds and to read IPA transcriptions. These will be assigned throughout the course and are due at the start of class on the date listed. You will work with sounds and words from different languages, using the concepts and terms learned in class.
+
+Submit your IPA practice exercises on Canvas. Instructions for each exercise will be posted there—please follow them carefully so your work is graded correctly.
+
+You can repeat each IPA practice exercise to learn from your mistakes and improve your skills. However, \textbf{only your first submission will count for your grade}. If you want full credit for your IPA practice exercises, you may submit a short reflection explaining what you learned and how you improved in later attempts. Instructions for the reflection will be on Canvas.
+
+IPA practice exercises make up \textbf{10\% of your final grade}.
+
+%------------------------------------
+\subsection*{Quizzes} \label{sec:quizzes}
+%------------------------------------
+
+Quizzes will be given throughout the course to check your understanding of the material from class and the readings. Quizzes are taken on Canvas and are due \textbf{Fridays, at 11:59pm}. They will cover topics like phonetic terms, sound production, transcription, and phonetic analysis.
+
+Your lowest quiz score will be dropped. This gives you some flexibility if you have a bad day or miss a quiz for a good reason.
+
+Quizzes may be open book and open notes, but you must do them by yourself. Working with others is not allowed. If you are unsure about what is allowed, please ask me before the quiz.
+
+Quizzes count for \textbf{10\% of your final grade.}
+
+%------------------------------------
+\subsection*{Labs} \label{sec:labs}
+%------------------------------------
+
+Labs will provide you with hands-on experience with the tools and methods used by phoneticians. This will include using software for recording and analyzing speech sounds. You will also learn how to interpret acoustic data, explain, and present your results (including creating appropriate graphs). You are strongly encouraged to work together on the lab exercises and discuss your findings. However, the lab write-ups must be done individually and submitted through Canvas. The goal of the labs is to help you develop practical skills in phonetic analysis and research.
+
+There will be a total of \textbf{3 labs} throughout the course. \textbf{Each lab will be worth 5\% of your final grade, for a total of 15\%.} Further instructions for each lab will be provided on Canvas.
+
+%------------------------------------
+\subsection*{Homework assignments} \label{sec:homework}
+%------------------------------------
+
+There will be a total of \textbf{9 homework assignments} throughout the course. Homeworks will be assigned each Tuesday during class, and you will have one week to complete each assignment. All homework must be submitted before class on the following Tuesday via Canvas.
+
+Each assignment will cover different topics and require you to apply concepts and skills learned in class. Detailed instructions for each homework will be provided on Canvas—please follow these instructions carefully to ensure accurate grading.
+
+Homework assignments make up \textbf{25\% of your final grade}.
+
+
+%------------------------------------
+\subsection*{Final project} \label{sec:course_assignment6}
+%------------------------------------
+
+The final project requires you to investigate the phonetic and phonological properties of a language with which you are not familiar. \textbf{LING 450 students} will select one language and complete a project that includes transcribing words, assembling phoneme charts, and comparing features to other languages, culminating in a final report. 
+
+\textbf{LING 550 students} will additionally complete a project on a second language. Detailed instructions and guidelines will be provided later in the course.
+
+The final project is worth \textbf{20\% of your final grade} and is \textbf{due Friday, Dec 5th, at 11:59pm via Canvas}.
+
+%------------------------------------
+\subsection*{Final exam} \label{sec:reading_responses}
+%------------------------------------
+
+The final exam is split into two 1-hour sections that are just like quizzes (only longer). Both parts of the final must be completed during the final exam period between when they become available on Canvas and the due date. They can be taken in any order, and you do not have to take them both on the same day.
+
+The final exam is worth \textbf{15\% of your final grade} and is \textbf{due Tuesday, Dec 9th, at 5pm via Canvas}.
+
+%------------------------------------
+% \subsection*{Grading Rubric for Homeworks} \label{sec:grading_rubric}
+%------------------------------------
+
+
+
+%------------------------------------
+\subsection*{Grade Breakdown} \label{sec:grades}
+%------------------------------------
+
+Here are the thresholds you must cross to achieve a particular grade in this course. For example, a grade of 95\% would be an 4.0, but a grade of 94.9\% would be an 3.9. 
+
+Please don’t ask me to round your grades up -- I won’t do it.
+
+\begin{longtable}{llllll}
+    \lsptoprule
+    $\geq$ 95\% = 4.0 & 88 = 3.3 & 81 = 2.6 & 74 = 1.9 & 67 = 1.2 \\
+    94 = 3.9 & 87 = 3.2 & 80 = 2.5 & 73 = 1.8 & 66 = 1.1 \\
+    93 = 3.8 & 86 = 3.1 & 79 = 2.4 & 72 = 1.7 & 65 = 1.0 \\
+    92 = 3.7 & 85 = 3.0 & 78 = 2.3 & 71 = 1.6 & 64 = 0.9 \\
+    91 = 3.6 & 84 = 2.9 & 77 = 2.2 & 70 = 1.5 & 63 = 0.8 \\
+    90 = 3.5 & 83 = 2.8 & 76 = 2.1 & 69 = 1.4 & 62 = 0.7 \\
+    89 = 3.4 & 82 = 2.7 & 75 = 2.0 & 68 = 1.3 & $<$ 0.7 = 0 \\
+    \lspbottomrule
+\end{longtable}
+
+It is your responsibility to keep track of your scores in the course. If you want to discuss your grade, you can do so in office hours or over zoom. Due to UW’s interpretation of FERPA regulations, I cannot and will not discuss any grades over email.
+
+%-------------------------------------
+\section*{Course Policies} \label{sec:policies}
+%-------------------------------------
+
+%------------------------------------
+\subsection*{Late Work and Extensions} \label{sec:late_work}
+%------------------------------------
+
+Assignments are due at the beginning of class on the date specified on the syllabus and/or Canvas. All homeworks and labs are also subject to a \textbf{24-hour grace period}. If you submit an assignment within 24 hours after the deadline, you will receive a \textbf{10\% penalty} on that assignment. After 24 hours, late assignments will not be accepted and will receive a score of zero.
+
+If you need an extension, please contact me at least 24 hours before the assignment is due. Extensions will be granted at my discretion, but I will try to be accommodating if you have a legitimate reason for needing one.
+
+%------------------------------------
+\subsection*{Collaboration on assignments} \label{sec:collaborate}
+%------------------------------------
+
+It's important to learn how to work with other people. Humans are social, and many of our tasks both social and professional involve working in groups to accomplish things. We also learn a lot from talking with other people. In some sense, this class should help train you to do those things — work with others and learn from discussion with them. However, as a college-level course, it's also important that we abide by our principles of academic integrity.
+
+Hence, if you talk with anyone about any of the material for an assignment, I would like you to credit those you talk to. This can be your other classmates, your friends and families, or even something you read or saw. At the bottom of your submissions, please add a section that begins "Collaborations:". After that, describe who you talked with and how. 
+
+%-------------------------------------
+\subsection*{ChatGPT and AI Tools} \label{sec:llms}
+%-------------------------------------
+
+In this course, students are permitted to use AI-based tools (such as \href{https://uwconnect.uw.edu/it?id=kb_article_view&sysparm_article=KB0034403}{UW’s version of Copilot}) on some assignments. The instructions for each assignment will include information about whether and how you may use AI-based tools to complete the assignment. All sources, including AI tools, must be properly cited. Use of AI in ways that are inconsistent with the parameters above will be considered academic misconduct and subject to investigation.
+
+Please note that AI results can be biased and inaccurate. It is your responsibility to ensure that the information you use from AI is accurate. Additionally, pay attention to the privacy of your data. Many AI tools will incorporate and use any content you share, so be careful not to unintentionally share copyrighted materials, original work, or personal information.
+
+Learning how to thoughtfully and strategically use AI-based tools may help you develop your skills, refine your work, and prepare you for your future career. If you have any questions about citation or about what constitutes academic integrity in this course or at the University of Washington, please feel free to contact me to discuss your concerns.
+
+%-------------------------------------
+\subsection*{A small note}	\label{sec:tamarins}
+%-------------------------------------
+
+In a 2006 paper, Moira Yip discusses the question of whether animals have phonology, or phonological abilities. She points out that, under some circumstances, cotton-top tamarins are capable of distinguishing recordings of Japanese and Dutch. Tamarins are cute: send me a picture of one via email within the first two weeks of the quarter and I’ll add 2\% to your final course grade as extra credit.
+
+%-------------------------------------
+\subsection*{Access and accommodations}	\label{sec:DRC}
+%-------------------------------------
+
+Your experience in this class is important to me. It is the policy and practice of the University of Washington to create inclusive and accessible learning environments consistent with federal and state law. If you have already established accommodations with Disability Resources for Students (DRS), please activate your accommodations via myDRS so we can discuss how they will be implemented in this course.
+
+If you have not yet established services through DRS, but have a temporary health condition or permanent disability that requires accommodations (conditions include but not limited to; mental health, attention-related, learning, vision, hearing, physical or health impacts), contact DRS directly to set up an Access Plan. DRS facilitates the interactive process that establishes reasonable accommodations. Contact DRS at \href{disability.uw.edu}{disability.uw.edu}.
+
+%-------------------------------------
+\subsection*{Incompletes}	\label{sec:Incomplete}
+%-------------------------------------
+
+Instructors may grant an incomplete grade if the student has done satisfactory work to within three weeks of the last day of the quarter and if circumstances prevent the student from completing the remaining work for the course by the end of the quarter. Instructors are never obligated to grant a student’s request for an Incomplete. Instructors will use the designated process for students to request and for instructors to approve the awarding of an Incomplete grade.
+
+To obtain credit for a course a grade must be submitted by the instructor of the course by the grading deadline per the Academic Calendar for the next subsequent quarter. For spring quarter, the subsequent quarter is considered to be the autumn quarter. This submission is done through the established late grade submission process. The submitted grade will replace the “I” on the transcript. If no grade is submitted the Incomplete will convert to a grade of 0.0 and the “I” will be removed from the official transcript. If a default grade was submitted by the instructor this grade will replace the “I” on the transcript. Courses taken CR/NC will change to a NC.
+
+In no case shall an Incomplete on the record at the time a degree is granted be subsequently changed to any other grade. The grade I shall count neither for registered hours nor in computation of grade-point averages.
+
+Instructors, on behalf of the student, may request an extension for one additional quarter beyond the original grading quarter utilizing the established extension request process.
+
+For further information on incompletes, refer to the \href{https://registrar.washington.edu/grades/incomplete-grade-policy/}{Office of the University Registrar Incomplete Grades webpage} and the \href{https://policy.uw.edu/directory/sgp/sgp-110-grades-honors-and-scholarship/#0}{university grading policy} on their use.
+
+%-------------------------------------
+\subsection*{Academic Integrity}	\label{sec:academic_integrity}
+%-------------------------------------
+
+The University takes academic integrity very seriously. Behaving with integrity is part of our responsibility to our shared learning community. If you’re uncertain about if something is academic misconduct, ask me. I am willing to discuss questions you might have.
+
+Acts of academic misconduct may include but are not limited to:
+
+\begin{itemize}
+    \item Cheating (working collaboratively on quizzes/exams and discussion submissions, sharing answers, and previewing quizzes/exams)
+    \item Plagiarism (representing the work of others as your own without giving appropriate credit to the original author(s))
+    \item Unauthorized collaboration (working with each other on assignments)
+\end{itemize}
+
+Concerns about these or other behaviors prohibited by the Student Conduct Code will be referred for investigation and adjudication by (include information for specific campus office).
+
+Students found to have engaged in academic misconduct may receive a zero on the assignment (or other possible outcome).
+
+%-------------------------------------
+\subsection*{Discrimination, harassment, and sexual misconduct}	\label{sec:title_ix}
+%-------------------------------------
+
+University of Washington policy, in concert with federal and state laws, provides the right to participate in University programs and activities free from sexual misconduct or discrimination on the basis of protected characteristics, including but not limited to disability, race, sex and others. Sexual misconduct includes, but is not limited to, sexual assault, relationship violence, sexual harassment, and stalking.
+
+Students who believe they have experienced \href{https://www.washington.edu/civilrights/seeking-support/civil-rights-discrimination/}{civil rights discrimination, harassment}, or \href{https://www.washington.edu/civilrights/seeking-support/sexual-misconduct/}{sexual misconduct} are encouraged to contact a Civil Rights Compliance Office Case Manager by making a \href{https://www.washington.edu/civilrights/making-a-report/make-a-report/}{\textbf{Civil Rights \& Title IX Report}}. Case managers can provide guidance on available \href{https://www.washington.edu/civilrights/seeking-support/supportive-measures/}{\textbf{Supportive Measures}} and \href{https://www.washington.edu/civilrights/resolution-options/resolution-options-overview/}{\textbf{Resolution Options}}.
+
+You can also access these resources directly:
+\begin{itemize}
+    \item \href{https://www.washington.edu/civilrights/seeking-support/sexual-misconduct/#kyrr}{Know Your Rights \& Resources} guide provides information for any member of the UW community who has experienced sexual misconduct.
+    \item \href{https://www.washington.edu/sexualassault/support/advocacy/}{Confidential Advocates} offer confidential support and advocacy for UW students and employees impacted by sexual assault, relationship violence, or stalking.
+    \item \href{https://www.washington.edu/civilrights/seeking-support/pregnancy-and-related-conditions/}{Pregnancy \& Related Conditions} provides information on support and reasonable modifications related to attending class or participating in educational activities if you are pregnant, have experienced a miscarriage or an abortion, are recovering from giving birth, are lactating, or have a related medical condition.
+\end{itemize}
+
+It’s also important to be aware that most employees who become aware of discrimination, harassment, or sexual misconduct involving students are required to share information with the Civil Rights Compliance Office. They may withhold the impacted student’s name if requested.
+
+%-------------------------------------
+\subsection*{Religious accommodations}	\label{sec:religious}
+%-------------------------------------
+
+“Washington state law requires that UW develop a policy for accommodation of student absences or significant hardship due to reasons of faith or conscience, or for organized religious activities. The UW’s policy, including more information about how to request an accommodation, is available at \href{https://registrar.washington.edu/staff-faculty/religious-accommodations-policy/}{Religious Accommodations Policy}. Accommodations must be requested within the first two weeks of this course using the \href{https://registrar.washington.edu/students/religious-accommodations-request/}{Religious Accommodations Request form}.”
+
+\newpage
+
+%-------------------------------------
+\section*{Tentative Course Schedule (Subject to change)} \label{sec:schedule}
+%-------------------------------------
+
+\begin{longtable}{|c|c|l|p{3cm}|p{1.25cm}|l|l|l|}
+
+\hline
+\multicolumn{2}{|l|}{\textbf{Date}} & \textbf{Readings} & \textbf{Homework} & \textbf{Quiz} & \textbf{IPA} & \textbf{Labs} & \textbf{Final Project} \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{2}{|l|}{\textbf{Date}} & \textbf{Readings} & \textbf{Homework} & \textbf{Quiz} & \textbf{IPA} & \textbf{Labs} & \textbf{Final Project} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{8}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+% Reformatted course schedule table according to LaTeX style guide
+
+\multicolumn{8}{|l|}{\textit{Week 0: Description vs. prescription; overview of phonetics}} \\ \hline
+Thu & Sept 25 &  &  & & & & \\ \hline
+Fri & Sept 26 &  &  & Quiz 1 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 1: Anatomy of speech; Overview of sound types}} \\ \hline
+Tue & Sept 30 & R\&J Ch. 2 & Homework 1 & & & & \\ \hline
+Thu & Oct 2   & & & & & & \\ \hline
+Fri & Oct 3   & & & Quiz 1 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 2: English Consonants}} \\ \hline
+Tue & Oct 7   &  & Homework 2 & & & & \\ \hline
+Thu & Oct 9   & L\&J Ch. 3 &  &  & & & \\ \hline
+Fri & Oct 10  &  &  & Quiz 2 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 3: English Vowels}} \\ \hline
+Tue & Oct 14  & & Homework 3 & & & & \\ \hline
+Thu & Oct 16  & L\&J Ch. 4 & & & Practice 1 & & \\ \hline
+Fri & Oct 17  & & & Quiz 3 &  &  & Part 1 \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 4: Stress and intonation}} \\ \hline
+Tue & Oct 21  &  & Homework 4 & & & Lab 1 & \\ \hline
+Thu & Oct 23  & R\&J Ch. 5 & & & Practice 2 & & \\ \hline
+Fri & Oct 24  & & & Quiz 4 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 5: Sounds of the World's Languages}} \\ \hline
+Tue & Oct 28  & Zs Ch. 3 & Homework 5 & & & & \\ \hline
+Thu & Oct 30  & Zs Ch. 4 & -- & & & & \\ \hline
+Fri & Oct 31  & & & Quiz 5 & & & Part 2 \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 6: Acoustic Phonetics}} \\ \hline
+Tue & Nov 4   & R\&J Ch. 7 & Homework 6 & & & & \\ \hline
+Thu & Nov 6   & R\&J Ch. 7 &  & & Practice 3 & & \\ \hline
+Fri & Nov 7   & & & Quiz 6 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 7: Auditory phonetics}} \\ \hline
+Tue & Nov 11  & \multicolumn{6}{c|}{\textbf{No class (Veterans Day/Remembrance Day)}} \\ \hline
+Thu & Nov 13  & R\&J Ch. 7 & Homework 7 & & & & \\ \hline
+Fri & Nov 14  & & & Quiz 7 & & & Part 3 \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 8: Speech perception}} \\ \hline
+Tue & Nov 18  & & Homework 8 & & & & \\ \hline
+Thu & Nov 20  & & & & Practice 4 & & \\ \hline
+Fri & Nov 21  & & & Quiz 8 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 9: Phonemic analysis }} \\ \hline
+Tue & Nov 25  & Zs Ch. 10 & Homework 9 & & & & \\ \hline
+Thu & Nov 27  & \multicolumn{6}{c|}{\textbf{No class (Thanksgiving)}} \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 10: Variation and applications}} \\ \hline
+Tue & Dec 2   & R\&J Ch. 9 & & & & & \\ \hline
+Thu & Dec 4   & & & &  & & \\ \hline
+Fri & Dec 5   & & & Quiz 9 & & & Project Due \\ \hline
+
+\multicolumn{8}{|c|}{\textbf{Final Exam Due: Tue Dec 9, 5:00 PM}} \\ \hline
+\end{longtable}
+
+
+%------------------------------------
+%BIBLIOGRAPHY
+%------------------------------------
+
+%\singlespacing
+%\nocite{*}
+% \printbibliography[heading=bibintoc]
+
+\end{document}
