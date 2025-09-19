@@ -1,0 +1,203 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, letterpaper]{article}
+
+%%BIBLIOGRAPHY- This uses biber/biblatex to generate bibliographies according to the
+%%Unified Style Sheet for Linguistics
+\usepackage[main=american, german]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+% \usepackage[backend=biber,
+%         style=unified,
+%         maxcitenames=3,
+%         maxbibnames=99,
+%         natbib,
+%         url=false]{biblatex}
+% \addbibresource{}
+% \setcounter{biburlnumpenalty}{100}  % allow URL breaks at numbers
+% \setcounter{biburlucpenalty}{100}   % allow URL breaks at uppercase letters
+% \setcounter{biburllcpenalty}{100}   % allow URL breaks at lowercase letters
+
+%%TYPOLOGY
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+\usepackage[hmargin=1in,vmargin=1in]{geometry}  %Margins          
+\usepackage{graphicx}	%Inserting graphics, pictures, images 		
+\usepackage{fontspec} %Selection of fonts must be ran in XeLaTeX or LuaLateX
+
+\usepackage{amssymb} %Math symbols
+\usepackage{amsmath} % Mathematical enhancements for LaTeX
+\usepackage{setspace} %Linespacing
+\usepackage{enumitem} %Allows for continuous numbering of lists over examples, etc.
+\usepackage{multirow} %Useful for combining cells in tablesbrew 
+\usepackage{fancyhdr} 
+\usepackage{hyperref} %allows for hyperlinks and pdf bookmarks
+\hypersetup{
+colorlinks = true,
+allcolors = Black,
+    linkcolor = DarkBlue,
+    citecolor = DarkGreen,
+    urlcolor = DarkMagenta
+}
+\usepackage[normalem]{ulem} %strike out text. Handy for syntax
+\usepackage[datesep=.]{datetime2}  % for date and time formatting
+\usepackage{longtable}  % multipage tables
+\usepackage{makecell}   % for manual line breaks
+\usepackage{booktabs}   % for professional looking tables
+\usepackage{titlesec}   % customize section titles
+\usepackage{array}      % for better arrays (eg matrices) in maths
+\usepackage{parskip}    % better handling of spacing between paragraphs
+
+
+% FANCYHDR Settings
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{\CourseCode: \CourseTitle}}
+\rhead{\Semester}
+\lfoot{\textit{Last updated: \today}}
+\rfoot{\thepage}
+
+
+% Customization placeholders
+\newcommand{\CourseCode}{LING 450/550}
+\newcommand{\CourseTitle}{Introduction to Linguistic Phonetics}
+\newcommand{\Semester}{Autumn 2025}
+
+\newcommand{\InstructorName}{Myke Brinkerhoff}
+\newcommand{\InstructorEmail}{mlbrinke@uw.edu}
+\newcommand{\InstructorOfficeHours}{W 3:30-4:30 (\href{https://washington.zoom.us/j/96351372694?pwd=QBe9YQv6JczhqbXIqw3bdsRbsKBfG1.1}{Zoom}); F 10:30-11:30 (GUG 407A); or by appointment }
+
+\newcommand{\TAOneName}{Ty Gill-Saucier}
+\newcommand{\TAOneEmail}{ztgill@uw.edu}
+\newcommand{\TAOneOfficeHours}{M 3:30-4:30 (\href{https://washington.zoom.us/j/94177487053}{Zoom}); R 10:30-11:30 (GUG 407); or by appointment}
+
+\newcommand{\TATwoName}{NAME}
+\newcommand{\TATwoEmail}{XXX@uw.edu}
+\newcommand{\TATwoOfficeHours}{TBD (LOCATION)}
+
+\newcommand{\ClassTimeLocation}{TR 8:30--10:20am, CMU 120 and Zoom (550C students only)}
+
+\newcommand{\InstructorInfo}{
+    \InstructorName\ (\href{mailto:\InstructorEmail}{\InstructorEmail})\\
+        Office: \InstructorOfficeHours
+    }
+
+\newcommand{\TAOneInfo}{
+    \TAOneName\ (\href{mailto:\TAOneEmail}{\TAOneEmail})\\
+    Office: \TAOneOfficeHours
+    }
+
+%%FONTS
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont[Scale=MatchLowercase]{Libertinus Mono}
+
+%%MACROS
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\supr}[1]{\textsuperscript{#1}}
+\providecommand{\lsptoprule}{\midrule\toprule}
+\providecommand{\lspbottomrule}{\bottomrule\midrule}
+\newcommand{\fittable}[1]{\resizebox{\textwidth}{!}{#1}}
+
+\renewcommand{\arraystretch}{1.3} % spacing between rows
+
+\begin{document}
+
+
+\begin{center}
+    {\Large \textbf{Tentative Course Schedule (Subject to change)}} %\\
+\end{center}
+% \thispagestyle{fancy}
+
+\begin{description}[style=multiline, leftmargin=6cm,font=\bfseries]
+    \item[Ladefoged and Johnson (L\&J)] Ladefoged, Peter \& Keith Johnson. 2014. \textit{A course in phonetics}. 7th ed. Stamford, CT: Cengage Learning.
+    \item[Reetz and Jongman (R\&J)] Reetz, Henning \& Allard Jongman. 2020. \textit{Phonetics: Transcription, production, acoustics, and perception} (Blackwell Textbooks in Linguistics). Second edition. Hoboken: John Wiley \& Sons.
+
+    \item[Zsiga (Zs)] Zsiga, Elizabeth C. 2024. \textit{The sounds of language: An introduction to phonetics and phonology} (Linguistics in the World 3). 2nd ed. Hoboken, NJ: John Wiley \& Sons.
+\end{description}
+
+\begin{longtable}{|c|c|l|p{3cm}|p{1.25cm}|l|l|l|}
+
+\hline
+\multicolumn{2}{|l|}{\textbf{Date}} & \textbf{Readings} & \textbf{Homework} & \textbf{Quiz} & \textbf{IPA} & \textbf{Labs} & \textbf{Final Project} \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{2}{|l|}{\textbf{Date}} & \textbf{Readings} & \textbf{Homework} & \textbf{Quiz} & \textbf{IPA} & \textbf{Labs} & \textbf{Final Project} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{8}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+% Reformatted course schedule table according to LaTeX style guide
+
+\multicolumn{8}{|l|}{\textit{Week 0: Description vs. prescription; overview of phonetics}} \\ \hline
+Thu & Sept 25 &  &  & & & & \\ \hline
+Fri & Sept 26 &  &  & Quiz 1 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 1: Anatomy of speech; Overview of sound types}} \\ \hline
+Tue & Sept 30 & R\&J Ch. 2 & Homework 1 & & & & \\ \hline
+Thu & Oct 2   & & & & & & \\ \hline
+Fri & Oct 3   & & & Quiz 1 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 2: English Consonants}} \\ \hline
+Tue & Oct 7   &  & Homework 2 & & & & \\ \hline
+Thu & Oct 9   & L\&J Ch. 3 &  &  & & & \\ \hline
+Fri & Oct 10  &  &  & Quiz 2 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 3: English Vowels}} \\ \hline
+Tue & Oct 14  & & Homework 3 & & & & \\ \hline
+Thu & Oct 16  & L\&J Ch. 4 & & & Practice 1 & & \\ \hline
+Fri & Oct 17  & & & Quiz 3 &  &  & Part 1 \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 4: Syllables and suprasegmentals}} \\ \hline
+Tue & Oct 21  &  & Homework 4 & & & Lab 1 & \\ \hline
+Thu & Oct 23  & R\&J Ch. 11 & & & Practice 2 & & \\ \hline
+Fri & Oct 24  & & & Quiz 4 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 5: Sounds of the World's Languages}} \\ \hline
+Tue & Oct 28  & Zs Ch. 3 & Homework 5 & & & & \\ \hline
+Thu & Oct 30  & Zs Ch. 4 & -- & & & & \\ \hline
+Fri & Oct 31  & & & Quiz 5 & & & Part 2 \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 6: Acoustic Phonetics}} \\ \hline
+Tue & Nov 4   &  & Homework 6 & & & & \\ \hline
+Thu & Nov 6   & R\&J Ch. 7, 10 &  & & Practice 3 & & \\ \hline
+Fri & Nov 7   & & & Quiz 6 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 7: Auditory phonetics}} \\ \hline
+Tue & Nov 11  & \multicolumn{6}{c|}{\textbf{No class (Veterans Day/Remembrance Day)}} \\ \hline
+Thu & Nov 13  & R\&J Ch. 7 & Homework 7 & & & & \\ \hline
+Fri & Nov 14  & & & Quiz 7 & & & Part 3 \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 8: Speech perception}} \\ \hline
+Tue & Nov 18  & & Homework 8 & & & & \\ \hline
+Thu & Nov 20  & R\&J Ch. 13 & & & Practice 4 & & \\ \hline
+Fri & Nov 21  & & & Quiz 8 & & & \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 9: Phonemic analysis }} \\ \hline
+Tue & Nov 25  & Zs Ch. 10 & Homework 9 & & & & \\ \hline
+Thu & Nov 27  & \multicolumn{6}{c|}{\textbf{No class (Thanksgiving)}} \\ \hline
+
+\multicolumn{8}{|l|}{\textit{Week 10: Variation and applications}} \\ \hline
+Tue & Dec 2   & R\&J Ch. 9 & & & & & \\ \hline
+Thu & Dec 4   & & & &  & & \\ \hline
+Fri & Dec 5   & & & Quiz 9 & & & Project Due \\ \hline
+
+\multicolumn{8}{|c|}{\textbf{Final Exam Due: Tue Dec 9, 5:00 PM}} \\ \hline
+\end{longtable}
+
+
+%------------------------------------
+%BIBLIOGRAPHY
+%------------------------------------
+
+%\singlespacing
+%\nocite{*}
+% \printbibliography[heading=bibintoc]
+
+\end{document}
