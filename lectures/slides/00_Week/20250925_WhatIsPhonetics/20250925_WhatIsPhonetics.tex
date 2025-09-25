@@ -1,7 +1,21 @@
 % !TEX TS-program = lualatex
 % !TEX encoding = UTF-8 Unicode
 
-\documentclass{beamer}
+\documentclass[professionalfonts]{beamer}
+\usepackage{iftex,ifxetex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \ifluatex
+    \usepackage{unicode-math} 
+    \defaultfontfeatures{Ligatures=TeX}
+    % \setmathfont{Latin Modern Math}
+    \setsansfont{CMU Sans Serif}
+    % \setsansfont{Linux Biolinum O}
+  \fi
+\fi
 
 \mode<presentation>
 {
@@ -168,17 +182,126 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Same spelling, different sounds}
+    \begin{itemize}
+        \item Examples:
+        \begin{itemize}
+            \item l\underline{\textbf{ea}}d (to guide) vs l\underline{\textbf{ea}}d (a type of metal)
+            \item sh\underline{\textbf{oe}}s vs g\underline{\textbf{oe}}s
+            \item t\underline{\textbf{omb}} vs c\underline{\textbf{omb}} vs b\underline{\textbf{omb}}
+        \end{itemize}
+        \item The same letter or combination of letters can represent different sounds in different words.
+        \item A good transcription system would allow us to represent each of these sounds differently.
+    \end{itemize}
+\end{frame}
 
-% \begin{frame}{Why do we need a system for phonetic transcription?}
-%     \begin{itemize}
-%         \item For example, the letter "c" can represent different sounds in different words:
-%         \begin{itemize}
-%             \item "cat" /kæt/ (the "c" represents the sound /k/)
-%             \item "city" /ˈsɪti/ (the "c" represents the sound /s/)
-%             \item "chocolate" /ˈtʃɒklət/ (the "ch" represents the sound /tʃ/)
-%         \end{itemize}
-%     \end{itemize}
-% \end{frame}
+\begin{frame}{Different spelling, same sound}
+    \begin{itemize}
+        \item Examples:
+        \begin{itemize}
+            \item h\underline{\textbf{ea}}vy, fr\underline{\textbf{ie}}nd, \underline{\textbf{a}}ny, b\underline{\textbf{u}}ry, l\underline{\textbf{eo}}pard (all have the vowel sound ``eh'')
+            \item s\underline{\textbf{u}}n, l\underline{\textbf{o}}ve, b\underline{\textbf{u}}tton, c\underline{\textbf{u}}p, d\underline{\textbf{oe}}s, s\underline{\textbf{o}}me, t\underline{\textbf{ou}}ch (all have the vowel sound ``uh'')
+        \end{itemize}
+        \item The same sound can be represented by different letters or combinations of letters in different words.
+        \item A good transcription system would allow us to represent each of these sounds the same way.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{``Silent'' letters}
+    \begin{itemize}
+        \item Examples:
+        \begin{itemize}
+            \item \underline{\textbf{k}}now, \underline{\textbf{g}}nome
+            \item \underline{\textbf{p}}sychology, t\underline{\textbf{h}}yme
+            \item \underline{\textbf{w}}rap, \underline{\textbf{h}}our
+        \end{itemize}
+        \item Some letters in words are not pronounced at all.
+        \item A good transcription system would allow us to ignore these letters and only represent the sounds that are actually pronounced.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Dialectal differences}
+    \begin{itemize}
+        \item Examples:
+        \begin{itemize}
+            \item The vowel sound in ``cot'' and ``caught'' is pronounced the same in some dialects (e.g., Western American English) but differently in others (e.g., Southern American English).
+            \item The final sound in ``car'' is pronounced with a rhotic ``r'' in some dialects (e.g., General American English) but not in others (e.g., British English).
+        \end{itemize}
+        % On the first slide, make it appear:
+        \only<1>{
+        % (empty, so nothing appears here)
+        }
+
+        % On the second slide, make it disappear (do nothing):
+        \only<2>{
+        \item The same word can be pronounced differently by speakers of different dialects or even by the same speaker in different contexts. 
+        \begin{itemize}
+            \item Urban Utahn English pronunciation of the ``t'' in ``mountain'' can vary between a clear ``t'' sound in formal speech and a glottal stop (i.e., the sound you make when you say ``uh-oh'') in casual speech.
+        \end{itemize}
+        }
+        \only<3>{
+        \item The same word can be pronounced differently by speakers of different dialects or even by the same speaker in different contexts. 
+        \item A good transcription system would allow us to represent these differences accurately.
+        }
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The Big Idea}
+    \begin{center}
+        \huge We need a system that allows us to represent each distinct sound with a unique symbol, regardless of how it is spelled or pronounced.
+    \end{center}
+\end{frame}
+
+\begin{frame}{The Big Idea}
+    \begin{center}
+        \huge 1 sound = 1 symbol \\
+        1 symbol = 1 sound
+    \end{center}
+\end{frame}
+
+\begin{frame}{Orthography and Transcription}
+    \begin{block}{Question}
+        Is this a problem for just English; what about other languages (provide examples)?
+    \end{block}
+    \begin{itemize}
+        \item Find two other people in the room and discuss this question for a few minutes.
+        \item Appoint someone in your group and be prepared to share your thoughts and/or examples with the class.
+    \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section*{The IPA}
+%-----------------------------------------------------------
+\begin{frame}{The International Phonetic Alphabet (IPA)}
+    \begin{itemize}
+        \item The IPA is a standardized system of phonetic notation that was initially created by the International Phonetic Association in the late 19th century.\footnote{The most recent version (2018) of the IPA chart can be found on our Canvas page under Resources.}
+        \item The IPA provides a unique symbol for each distinct sound in human language.
+        \item The IPA is used by linguists, speech-language pathologists, singers, actors, and others who need to accurately represent speech sounds.
+        \item BUT: The IPA is not perfect; it has limitations and challenges.
+    \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section*{Takeaways}
+%-----------------------------------------------------------
+\begin{frame}{Your tasks for next time}
+    \begin{itemize}
+        \item Complete the exit ticket for today on Canvas by 12:30pm.
+        \item Read Reetz \& Jongman (2009) Chapter 2.
+        \begin{itemize}
+            \item There will be a discussion post on Canvas for this reading (This counts as class participation)
+        \end{itemize}
+        \item Complete Quiz 0 by Friday at 11:59pm.
+        \item Complete Homework 1 by Tuesday at 8:30am.
+        \item Be ready to dive into Articulation and the IPA next time!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        [ hæv ə fʌn wikɛn ɛn wɪl siː ɑl jal ɪn klæs ɑn tjuzdeɪ ]
+    \end{center}
+\end{frame}
 
 % \subsection<presentation>*{References}
 % %-----------------------------------------------------------
