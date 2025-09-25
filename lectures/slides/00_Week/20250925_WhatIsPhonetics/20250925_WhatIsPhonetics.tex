@@ -1,0 +1,184 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Madrid} % or try Darmstadt, Madrid, Warsaw, ...
+  % or ...
+  \setbeamertemplate{bibliography item}{}
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+\usepackage{fontspec}
+\usepackage[english]{babel}
+% or whatever
+\usepackage{csquotes}
+\usepackage[backend=biber,
+        style=unified,
+        maxcitenames=3,
+        maxbibnames=99,
+        natbib,
+        url=false]{biblatex}
+% \addbibresource{Dissertation.bib}
+\setmainfont{Libertinus Sans} % Main font
+% \setsansfont{libertinus sansserif} % Sans serif font
+% \setmonofont{CMU Typewriter Text}
+\renewcommand{\ttdefault}{cmtt}
+
+% \usepackage[colorlinks,allcolors={black},urlcolor={blue}]{hyperref} %allows for hyperlinks and pdf bookmarks 
+\usepackage{graphicx}	%Inserting graphics, pictures, images 		
+\usepackage{multicol} %Multicolumn text
+\usepackage{multirow} %Useful for combining cells in tablesbrew 
+% \usepackage{booktabs} %Enhanced tables
+% \usepackage{underscore} %Allows for underscores in text mode
+% \usepackage[colorlinks,allcolors={black},urlcolor={blue}]{hyperref} %allows for hyperlinks and pdf bookmarks
+\usepackage{url} %allows for urls
+\def\UrlBreaks{\do\/\do-} %allows for urls to be broken up
+% \usepackage[normalem]{ulem} %strike out text. Handy for syntax
+% \usepackage{tcolorbox}
+% \usepackage{datetime2}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{langsci-gb4e} % Language Science Press' modification of gb4e
+\usepackage{tikz} % Drawing Hasse diagrams
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{leipzig} %	Offers support for Leipzig Glossing Rules
+
+
+\title[LING 450/550] % (optional, use only with long paper titles)
+{Introduction to Linguistic Phonetics}
+
+\subtitle{What is Phonetics?}
+
+\author[Brinkerhoff] % (optional, use only with lots of authors)
+{Mykel Loren Brinkerhoff}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[UW] % (optional, but mostly needed)
+{University of Washington}
+% - Use the \inst command only if there are several affiliations.
+
+\date[2025-09-25] % (optional, should be abbreviation of conference name)
+{September 25, 2025}
+
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection,currentsubsection]
+%   \end{frame}
+% }
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%-----------------------------------------------------------
+\section{What is Phonetics?}
+%-----------------------------------------------------------
+\begin{frame}{What is Phonetics?}
+    \begin{itemize}
+        \item The study of speech sounds.
+        \item There are three main areas research in phonetics:
+        \begin{enumerate}
+            \item Speech \textit{articulation}: how speech sounds are produced using articulators
+            \item Speech \textit{acoustics}: what sounds are like in the air
+            \item Speech \textit{perception}: how our auditory and cognitive systems interpret sounds
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What is Phonology?}
+    \begin{itemize}
+        \item Phonology is the other subfield of linguistics that studies speech sounds.
+        \item Phonology is concerned with how the sounds we produced are organized in linguistic systems (i.e., Language and languages) and sound structures (e.g., syllables, words, and phrases).
+        \item We will cover some phonology in this class, but the main focus is phonetics.
+    \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{What we will cover in this course}
+%-----------------------------------------------------------
+\begin{frame}{What we will cover in this course}
+    \begin{itemize}
+        \item Understand the basic concepts and terminology of phonetics.
+        \item Learn about the articulatory, acoustic, and perceptual aspects of speech sounds.
+        \item Gain familiarity with the methods and tools used in phonetic research.
+        \item Explore the relationship between phonetics and other subfields of linguistics.
+    \end{itemize}
+\end{frame}
+
+%-----------------------------------------------------------
+\section{Transcribing speech sounds}
+%-----------------------------------------------------------
+
+\begin{frame}{Transcription}
+    \begin{itemize}
+        \item \textbf{Phonetic transcription} is a way of visually representing speech sounds using symbols.
+        \item The most common system for phonetic transcription is the \textbf{International Phonetic Alphabet (IPA)}.
+        \item The IPA provides a unique symbol for each distinct sound (or phoneme) in human language.
+        \item We will learn how to use the IPA to transcribe speech sounds accurately.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Why do we need a system for phonetic transcription?}
+    \begin{center}
+        \huge Let's talk about the elephant in the room.
+    \end{center}
+    
+\end{frame}
+
+\begin{frame}{Why do we need a system for phonetic transcription?}
+    \begin{itemize}
+        \item English spelling is not a reliable guide to pronunciation; it is often inconsistent and ambiguous.
+        \item Is it the worst spelling system? It is certainly one of the worst.
+        \item Most languages don't require that you do spelling tests in school.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Why do we need a system for phonetic transcription?}
+    \begin{itemize}
+        \item For example, the letter "c" can represent different sounds in different words:
+        \begin{itemize}
+            \item "cat" /kæt/ (the "c" represents the sound /k/)
+            \item "city" /ˈsɪti/ (the "c" represents the sound /s/)
+            \item "chocolate" /ˈtʃɒklət/ (the "ch" represents the sound /tʃ/)
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% \subsection<presentation>*{References}
+% %-----------------------------------------------------------
+% \begin{frame}[t,allowframebreaks]
+%   \frametitle<presentation>{References}
+%     \printbibliography
+% \end{frame}
+
+\end{document}
