@@ -18,3 +18,10 @@ It contains resources, code, and documentation to support instruction and learni
 - `assignments/`: Homework assignments and solutions.
 - `resources/`: Additional reading materials and references.
 
+## Sources
+This course is a synthesis of four different courses from UC Santa Cruz and University of Washington: 
+- UCSC's Fall 2022 offering of **LING 100 (Intro to Phonetics)** by Jaye Padgett.
+- UCSC's Spring 2023 offering of **LING 151 (Phonetics II)** by Grant McGuire.
+- UCSC's Fall 2023 offering of **LING 100 (Intro to Phonetics)** by Amanda Rysling.
+- UW's Winter 2025 offering of **LING 450/550 (Intro to Linguistic Phonetics)** By Yuan Chai. 
+
