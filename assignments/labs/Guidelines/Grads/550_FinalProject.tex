@@ -1,0 +1,185 @@
+% !TEX TS-program = lualatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, letterpaper]{article}
+
+%%BIBLIOGRAPHY- This uses biber/biblatex to generate bibliographies according to the
+%%Unified Style Sheet for Linguistics
+\usepackage[main=american, german]{babel}% Recommended
+\usepackage{csquotes}% Recommended
+\usepackage[backend=biber,
+        style=unified,
+        maxcitenames=3,
+        maxbibnames=99,
+        natbib,
+        url=false]{biblatex}
+% \addbibresource{.bib}
+\setcounter{biburlnumpenalty}{100}  % allow URL breaks at numbers
+% \setcounter{biburlucpenalty}{100}   % allow URL breaks at uppercase letters
+% \setcounter{biburllcpenalty}{100}   % allow URL breaks at lowercase letters
+
+%%TYPOLOGY
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+\usepackage[hmargin=1in,vmargin=1in]{geometry}  %Margins          
+\usepackage{graphicx}	%Inserting graphics, pictures, images 		
+\usepackage{stackengine} %Package to allow text above or below other text, Also helpful for HG weights 
+\usepackage{fontspec} %Selection of fonts must be ran in XeLaTeX or LuaLateX
+\usepackage{amssymb} %Math symbols
+\usepackage{amsmath} % Mathematical enhancements for LaTeX
+\usepackage{setspace} %Linespacing
+\usepackage{multicol} %Multicolumn text
+\usepackage{enumitem} %Allows for continuous numbering of lists over examples, etc.
+\usepackage{multirow} %Useful for combining cells in tablesbrew 
+\usepackage{hanging}
+\usepackage{fancyhdr} %Allows for the 
+\pagestyle{fancy}
+\fancyhead[L]{\textit{LING 450/550: Project Guidelines}}
+\fancyhead[R]{Autumn 2025} 
+\fancyfoot[L]{Updated: \textit{\today}} 
+\fancyfoot[C]{\thepage} 
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14.5pt} % ...at least 14.49998pt
+% \usepackage{fourier} % This allows for the use of certain wingdings like bombs, frowns, etc.
+% \usepackage{fourier-orns} %More useful symbols like bombs and jolly-roger, mostly for OT
+\usepackage[colorlinks,allcolors={black},urlcolor={blue}]{hyperref} %allows for hyperlinks and pdf bookmarks
+% \usepackage{url} %allows for urls
+% \def\UrlBreaks{\do\/\do-} %allows for urls to be broken up
+\usepackage[normalem]{ulem} %strike out text. Handy for syntax
+\usepackage{tcolorbox}
+\usepackage{datetime2}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}      % for better arrays (eg matrices) in maths
+\usepackage{parskip}    % better handling of spacing between paragraphs
+
+%%FONTS
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont[Scale=MatchLowercase]{Libertinus Mono}
+
+%%PACKAGES FOR LINGUISTICS
+\usepackage[noipa]{OTtablx} % Use this one generating tableaux without using TIPA
+\usepackage{langsci-gb4e} % Language Science Press' modification of gb4e
+\usepackage{tikz} % Drawing Hasse diagrams
+\usepackage{leipzig} %	Offers support for Leipzig Glossing Rules
+
+%%LEIPZIG GLOSSING FOR ZAPOTEC
+\newleipzig{el}{el}{elder} % Elder pronouns
+\newleipzig{hu}{hu}{human} % Human pronouns
+\newleipzig{an}{an}{animate} % Animate pronouns
+\newleipzig{in}{in}{inanimate} % Inanimate pronouns
+\newleipzig{pot}{pot}{potential} % Potential Aspect
+\newleipzig{cont}{cont}{continuative} % Continuative Aspect
+\newleipzig{stat}{stat}{stative} % Stative Aspect
+\newleipzig{and}{and}{andative} % Andative Aspect
+\newleipzig{ven}{ven}{venative} % Venative Aspect
+% \newleipzig{res}{res}{restitutive} % Restitutive Aspect
+\newleipzig{rep}{rep}{repetitive} % Repetitive Aspect
+
+%%TITLE INFORMATION
+% \title{TITLE}
+% \author{Mykel Loren Brinkerhoff}
+% \date{\today}
+
+%%MACROS
+\newcommand{\sub}[1]{\textsubscript{#1}}
+\newcommand{\supr}[1]{\textsuperscript{#1}}
+
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}%
+  {\z@}{0ex \@plus 1ex \@minus .2ex}{-1em}%
+  {\normalfont\normalsize\bfseries}%
+}
+\makeatother
+\parindent=10pt
+
+\renewcommand{\arraystretch}{1.3} % spacing between rows
+
+
+\begin{document}
+
+%%If using linguex, need the following commands to get correct LSA style spacing
+%% these have to be after  \begin{document}
+    % \setlength{\Extopsep}{6pt}
+    % \setlength{\Exlabelsep}{9pt}		%effect of 0.4in indent from left text edge
+%%
+
+%% Line spacing setting. Comment out the line spacing you do not need. Comment out all if you want single spacing.
+%	\doublespacing
+%	\onehalfspacing
+
+\begin{center}
+     {\Large \textbf{LING 450/550: Final Project Part 1}}\\
+    {\large Due: Friday, October 31, 2025 at 11:59pm}
+\end{center}
+%\maketitle
+%\maketitleinst
+% \thispagestyle{fancy}
+
+% \tableofcontents
+
+%------------------------------------
+\section*{Project overview} \label{}
+%------------------------------------
+
+You will complete an individual project on a language that you do not know. The goal of this project is to introduce you to resources and methods used by phoneticians and to help you hone your transcription skills. Do not worry about making mistakes in your initial transcriptions. This project is about the journey and the skills you pick up and not about getting the immediate correct answers. Deadlines for the corresponding steps outlined below are in the course calendar.
+
+I will prepare templates for you to use in both DOCX and \LaTeX\footnote{If you use \LaTeX, you must use either XeLaTeX or LuaLaTeX to compile your document. }. Choose whichever is most comfortable for you. 
+
+You must submit your assignment as a PDF.
+
+%------------------------------------
+\section*{Transcription and Charts} \label{}
+%------------------------------------
+
+\begin{enumerate}
+    \item \textbf{Sound files.} You will be given sound files for an unlabeled language that you do not know.
+    \begin{itemize}
+        \item Each sound file is one word said by a native speaker, and the file name is the English gloss (translation) for the meaning of that word.
+        \item Most collections are organized into folders labeled consonants, vowels, and tone when applicable. Some may have separate folders for diphthongs or other relevant distinctions, but the absence of a grouping does not necessarily imply the absence of a distinction (e.g., you may find diphthongs in your vowels folder). In your consonants folder, you will have enough evidence to identify all the consonant distinctions in your language (all phonemes and possibly some allophones, although you may not have enough evidence to determine whether a sound is an allophone). In your vowels folder, you will have at least one instance of each vowel phoneme.
+        \item The number of files does not necessarily correspond to the number of phonemes in your language (i.e., not every sound file has a unique sound, but it is possible that you will only have one example of a given sound).
+    \end{itemize}
+    \item \textbf{Transcriptions.} Transcribe your sound files in a list/table format. You may want to begin doing this by hand, but the draft you turn in must be typed using correct IPA symbols.
+    \begin{itemize}
+        \item It is highly recommended that you use high-quality headphones, preferably circum-aural (enclosing your ears), to listen to your files in a quiet environment while you transcribe. Computer speakers often distort sounds, and many earbuds have low quality output. The Language Learning Center in the basement of Denny Hall has good headphones, and other computer labs on campus may also.
+        \item Your transcriptions should appear in neat tables with column headings and use Unicode fonts (e.g., Charis SIL or Doulos SIL) with standard IPA symbols and conventions. (If you use a word processor, make a table or use uniform tab stops throughout to create the appearance of columns).
+        \item Column headings should include, in order: word number, word gloss, your transcription. (You may add others, as appropriate; e.g., if you’d like to add second options or notes to unconfident transcriptions.)
+        \item You should have sections with headings for each folder (consonants, vowels, tones, etc.).
+        \item You have two options for how to order your sound files within each table section/folder:
+        \begin{enumerate}
+            \item Present your transcriptions in the order the words appear in their folders – if the files are numbered, order your transcriptions numerically; if they are not, order them alphabetically.
+            \item Or, you may rearrange the words in each section to more clearly show phonetic distinctions. For example, you may want to put minimal pairs together or put words that illustrate each consonant sound in the order they appear in your chart. If your files are numbered, include the number in the first column of your table, even though the numbers will be out of order. (This makes it easier to find each sound file later.)
+        \end{enumerate} 
+    \end{itemize}
+    \item \textbf{Phonetic inventory charts.} From your transcriptions, build phonetic inventory charts for your language. Every symbol used in your transcriptions should appear in your charts and vice versa. Your final drafts should be clear (not blurry) and typed using Unicode IPA fonts and conventions, arranged in neat tables with row and column headings for articulatory descriptions. \textbf{You should not have any empty rows/columns}\footnote{This means you must delete rows or columns that would otherwise be empty. For example, if you language has no retroflex sounds, you should not have a retroflex column.}, and the font style and size should be uniform and of a similar size to your prose. \textbf{Add footnotes to distinguish pairs, e.g. voiced/voiceless and rounded/unrounded.}
+    \begin{itemize}
+        \item \textbf{Consonants.} Follow the main IPA consonant chart, placing in the appropriate locations only those sounds you observe in your sound files. You may add rows or columns as appropriate to fully describe your inventory, or you may add more than two symbols to a cell. Examples: Add rows for affricates, implosives, palatalized consonants; add columns for labialized consonants after corresponding place columns; or just add the appropriate symbols to existing cells.
+        \item \textbf{Vowels.} Follow the IPA vowels chart, placing the vowels you transcribe in locations appropriate to their articulatory descriptions. Your chart doesn’t have to be slanted for the front vowels; it can be a simple rectangular table. Note: You only need to include tense/lax in descriptions if there are pairs that are distinguished only by this, or if you can see a pattern where tense vowels appear in different environments than lax.
+        \begin{itemize}
+            \item \textbf{Non-quality distinctions.} If your language has phonemic distinctions other than quality (length, nasalization, creakiness, breathiness, laryngealization, etc.), decide whether to create separate charts for each set. If all vowel qualities participate in the distinction, you may simply state this in words below the chart. Otherwise, it often works to add appropriate symbols next to the plain vowels in the same chart. For example, inventories with length distinctions often place long vowels next to their short counterparts. If only a subset of vowels is affected, it may be clearer to show them in a separate chart.
+            \item \textbf{Diphthongs (and triphthongs\footnote{There is at least one language that has been assigned that contains triphthongs}, if applicable).} If your language has a small vowel inventory, you may put diphthongs on the same chart as monophthongs. You can put the diphthong at the location of any vowel involved, or you can draw an arrow from the first vowel to the second vowel (and to the third vowel, for triphthongs), and write the diphthong symbol at either vowel location. If this would be crowded, create a separate chart. If you do not have a separate diphthongs folder, attempt to identify any diphthongs on your own.
+        \end{itemize} 
+        \item \textbf{Tone, pitch accent, etc.} If your language has lexical tone, or if you have evidence of grammatical tone or pitch accent, include a chart with example words to illustrate the distinction. (Ask me (your instructor) for examples if necessary.)
+    \end{itemize}
+    \item Below each set of charts (consonants, vowels, tones, etc.), write \textbf{brief prose descriptions} of all the sounds identified (1-2 paragraphs per chart). You must use complete articulatory descriptions and list all symbols used in your charts, but sounds should be described in groups to reduce repetition. Examples: “The language has voiceless and voiced stops at three places of articulation: bilabial [p, b], alveolar [t, d], and velar [k, ɡ]”; or “The language has bilabial, alveolar, and velar stops, both voiceless [p, t, k] and voiced [b, d, ɡ].”
+    \begin{itemize}
+        \item While finishing your first attempt at your transcriptions, charts, and descriptions, you may want to meet with the other student(s) working on languages of the same language family (in person or virtually through chat, email, or discussion board). Ask each other for help identifying sounds and transcribing difficult words, and look over each other’s charts and descriptions for internal consistency. However, \textbf{you do not need to agree on particular sounds or symbol choices, and your descriptions should not be worded identically.}
+    \end{itemize}
+    \item \textbf{Turn in your transcriptions, charts, and descriptions (steps 3-5 above) in a PDF format.} Note that your writing style should be appropriate for an academic paper:
+    \begin{itemize}
+        \item Not conversational
+        \item It need not be extremely formal (e.g., you may use first person, active voice, contractions, etc.)
+        \item You should also use complete sentences, correct spelling, clear organization, varied sentence structure, and avoid colloquialisms.
+    \end{itemize}
+\end{enumerate}
+
+%------------------------------------
+%BIBLIOGRAPHY
+%------------------------------------
+
+%\singlespacing
+%\nocite{*}
+% \printbibliography[heading=bibintoc]
+
+\end{document}
