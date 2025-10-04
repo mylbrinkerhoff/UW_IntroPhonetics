@@ -17,3 +17,5 @@ Add oral formant frequency point... 2 0.08 1250
 # synthesis
 To Sound
 Play
+
+# Save as WAV file: "/Users/mlbrinke/Downloads/da.wav"
