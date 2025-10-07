@@ -205,7 +205,7 @@
             \item We typically assign zero to atmospheric equilibrium and refer to relative changes from it 
             \item Thus it is commonly called the \textbf{zero}, or \textbf{zero line}
         \end{itemize}
-        \item Bottom is a visualization of the compression and rarefaction of the particles
+        \item Bottom shows the compression and rarefaction of the particles
     \end{itemize}
 \end{frame}
 
@@ -229,6 +229,9 @@
     \end{itemize}
 \end{frame}
 
+%-----------------------------------------------------------
+\subsection*{Periodic Waves}
+%-----------------------------------------------------------
 
 \begin{frame}{Periodic Waves}
     \begin{itemize}
@@ -290,11 +293,30 @@
 
 \begin{frame}{Amplitude}
     \begin{multicols}{2}
-        
+        \begin{itemize}
+            \item Amplitude is how far the particles move away from equilibrium, show on a waveform by how high the peaks and low the troughs are from the zero line
+            \item In simple terms, we hear this as loudness: the greater the amplitude, the louder the sound
+            \item We'll go more in-depth later when we talk about audition
+        \end{itemize}
         \columnbreak
-+
+        \includegraphics[width = \linewidth]{figs/Amplitude.png}
     \end{multicols}
 \end{frame}
+
+%-----------------------------------------------------------
+\section*{Aperiodic Waves}
+%-----------------------------------------------------------
+
+\begin{frame}{Aperiodic waves}
+    \begin{itemize}
+        \item No repeating pattern
+        \item No consistent wavelength
+        \item Overall amplitude might be consistently within a range, but not on small scale
+        \item Related to turbulent airflow
+        \item \href{https://en.wikipedia.org/wiki/White_noise}{white noise} and \href{https://en.wikipedia.org/wiki/Pink_noise}{pink noise} are two mathematically defined types
+    \end{itemize}
+\end{frame}
+
 %-----------------------------------------------------------
 \section*{Break}
 %-----------------------------------------------------------
@@ -306,10 +328,268 @@
 \end{frame}
 
 %-----------------------------------------------------------
-\section*{Articulators}
+\section*{Complex Waves and spectra}
 %-----------------------------------------------------------
 
+\begin{frame}{Complex waves and spectra}
+    \begin{center}
+        \includegraphics[width = 0.75\linewidth]{figs/FourierCats.jpg}    
+    \end{center}
+    
+    {\footnotesize Image copyright Randall Munroe, XKCD comics}
+\end{frame}
 
+\begin{frame}{Simple period waves}
+    \begin{itemize}
+        \item A very specific type of wave defined by the \textbf{sine} trigonometric function
+        \item Important because it forms the building block for more complex sounds
+        \item \href{https://www.acs.psu.edu/drussell/Demos/complex/complex.html}{It is geometrically related to a circle}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sine and Cosine waves}
+    \begin{itemize}
+        \item Sine and Cosine waves are closely related
+        \item The difference between the two can be described as a \textbf{phase} difference
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Superposition of waves}
+    \begin{multicols}{2}
+        \begin{itemize}
+        \item When waves interact, the result is constructive or destructive interference
+        \begin{itemize}
+            \item Constructive = additive 
+            \item Destructive = subtractive
+        \end{itemize}
+    \item Adding simple waves together results in a \textbf{complex wave}
+    \end{itemize}
+
+    \columnbreak
+
+    \includegraphics[width = \linewidth]{figs/ConstructiveDestructive.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{“Adding” waves}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item The phasing of waves matters to how they will combine
+            \item At left, the waves are in phase (top), 90° out of phase, and 180° out of phase (bottom)
+            \item If we add these waves, we get constructive and destructive interference
+        \end{itemize}
+
+        \columnbreak
+
+        \includegraphics[width = \linewidth]{figs/Phasing.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Illustration of Constructive and Desctructive Interference}
+    \begin{center}
+        \href{https://www.acs.psu.edu/drussell/Demos/superposition/interference.gif}{Interference Illustration}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Superposition of waves}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item So far all the waves we’ve discussed in this section are the same frequency and amplitude
+            \item Things get slightly more complicated for waves of different frequencies and amplitudes
+        \end{itemize}
+        \columnbreak
+        \includegraphics[width = \linewidth]{figs/AddingSines.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Complex waves}
+    \begin{multicols}{2}
+        \includegraphics[width = \linewidth]{figs/Complex.png}
+
+        \columnbreak
+
+        \begin{itemize}
+            \item The simple waves we’ve been discussing don’t exist in nature on their own
+            \item The sound waves all around us are \textbf{complex waves} made up of many simple waves
+            \item You can generate some using \href{https://www.falstad.com/fourier/}{this applet}
+        \end{itemize}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Components of complex waves}
+    \begin{itemize}
+        \item Since waves combine into more complex ones predictably, we can take complex ones and break them down into their simple \textbf{components}
+        \item This is actually a bit complicated, but modern computing makes it easy
+        \begin{itemize}
+            \item Praat has this built in.
+        \end{itemize}
+        \item It’s called \textbf{Fourier Analysis}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fourier Analysis}
+
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item This process takes a complex wave and breaks it down into its component waves
+            \item In terms of periodic waves, we get the frequency and amplitude of those waves
+        \end{itemize}
+
+        \columnbreak
+
+        \includegraphics[width = \linewidth]{figs/Complex.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Visualizing component waves}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item Fourier analysis Waveform produces a spectrum
+            \item A spectrum shows a snapshot of a sound
+            \item This snapshot shows the amplitude and frequency of component waves
+        \end{itemize}
+        
+        \columnbreak
+
+        \includegraphics[width = \linewidth]{figs/ComplexWaves.png}
+        \includegraphics[width = \linewidth]{figs/Fourier-ComplexWaves.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Spectrum (pl. spectra)}
+    \begin{multicols}{2}
+        \includegraphics[width = \linewidth]{figs/Fourier-ComplexWaves.png}
+        \columnbreak
+
+        \begin{itemize}
+            \item X-axis shows frequency
+            \item Y-axis shows amplitude
+            \item This is a mathematical estimation, so there’s some “fuzziness”, especially in the lower amplitude
+        \end{itemize}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Spectrograms}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item The spectrum just shows a snapshot in time and can’t show \textit{changes} over time
+            \item We use the spectrum information and show how it changes over time by adding another dimension
+            \item We call this a \textbf{spectrogram}
+        \end{itemize}
+
+        \columnbreak
+
+        \includegraphics[width = \linewidth]{figs/Specrtogram.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Spectrograms}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item Time is on the x-axis
+            \item Component frequencies on the y-axis
+            \item Shading shows amplitude, darker = higher amplitude
+        \end{itemize}
+
+        \columnbreak
+
+        \includegraphics[width = \linewidth]{figs/Specrtogram.png}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{Spectrogram}
+    \begin{itemize}
+        \item There’s a tradeoff between time and frequency in terms of resolution
+        \item Two types of spectrograms
+        \begin{itemize}
+            \item Narrowband: shows frequency in more detail at the expense of changes over time
+            \item Wideband: shows changes in time in more detail at the expense of frequency
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Frequency confusion}
+    \begin{itemize}
+        \item We need to be very specific about \textit{which} frequency we’re talking about because there are two references
+        \begin{enumerate}
+            \item The frequency of the complex wave we are analyzing
+            \item The frequencies of the component parts
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Fundamental frequency}
+    \begin{itemize}
+        \item The frequency of the complex wave we are decomposing is called the \textbf{fundamental} frequency, or $f0$
+        \item In speech sounds, the rate of vocal fold vibration equals the fundamental
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Harmonics}
+    \begin{multicols}{2}
+        \includegraphics[width = \linewidth]{figs/Complex.png}
+
+        \columnbreak
+
+        \begin{itemize}
+            \item The component parts of a complex wave each have their own frequencies
+            \item These frequencies are called harmonics, because they are in a harmonic relationship with the fundamental
+            \item Represented as $Hn$ where $n =$ a specific harmonic
+        \end{itemize}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}{$f0$ and Harmonics}
+    \begin{itemize}
+        \item The harmonics are each an integer value of the fundamental
+        \begin{itemize}
+            \item $f0 = H1$ 
+        \end{itemize}
+        \item Meaning: a given harmonic, say the fourth one, is 4x the fundamental
+        \item So, if the fundamental is 200Hz: 
+        \begin{itemize}
+            \item the first harmonic, H1 = 200Hz x 1 = ?Hz 
+            \item the second harmonic, H2 = 200Hz x 2 = ?Hz 
+            \item the third harmonic, H3 = 200Hz x 3 = ?Hz 
+            \item the fourth harmonic, H4 = 200Hz x 4 = ?Hz 
+            \item etc.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{$f0$ and Harmonics}
+    \begin{itemize}
+        \item The harmonics are each an integer value of the fundamental
+        \begin{itemize}
+            \item $f0 = H1$ 
+        \end{itemize}
+        \item Meaning: a given harmonic, say the fourth one, is 4x the fundamental
+        \item So, if the fundamental is 200Hz: 
+        \begin{itemize}
+            \item the first harmonic, H1 = 200Hz x 1 = 200Hz 
+            \item the second harmonic, H2 = 200Hz x 2 = 400Hz 
+            \item the third harmonic, H3 = 200Hz x 3 = 600Hz 
+            \item the fourth harmonic, H4 = 200Hz x 4 = 800Hz 
+            \item etc.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Where are the harmonics?}
+    \begin{center}
+        \includegraphics[width = 0.8\linewidth]{figs/Fourier-ComplexWaves.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Playing with sound}
+    \begin{center}
+        {\Huge Playing around with Praat!}\\
+        (if there is time)
+    \end{center}
+\end{frame}
 
 %-----------------------------------------------------------
 \section*{To Do:}
@@ -317,7 +597,8 @@
 \begin{frame}{To Do:}
     \begin{itemize}
         \item Complete the exit ticket for today on Canvas by 12:30pm.
-        \item Complete Homework 2 by Tuesday at 8:30am.
+        \item Submit your discussion posts on the readings
+        \item Bring your computers for next time, we'll be playing with Praat and sound waves!!!
     \end{itemize}
 \end{frame}
 
