@@ -373,3 +373,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/latex,macos,windows
 
 LING 450:550 Add Codes.md
+
+*.wav
