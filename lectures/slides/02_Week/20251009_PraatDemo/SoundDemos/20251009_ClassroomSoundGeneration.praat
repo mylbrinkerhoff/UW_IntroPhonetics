@@ -32,25 +32,15 @@ Create Sound from formula: "harmonics_3", 1, 0, 1, 44100, "0.5*sin(2*pi*334*x) +
 Save as WAV file: "harmonics_3.wav"
 
 # Harmonics missing
-Create Sound from formula: "harmonics_missing", 1, 0, 1, 44100, "0.5*sin(2*pi*(125*3)*x) + 0.3*sin(2*pi*(125*4)*x) + 0.2*sin(2*pi*(125*5)*x)"
+Create Sound from formula: "harmonics_missing", 1, 0, 1, 44100, "0.5*sin(2*pi*(125*3)*x) + 0.3*sin(2*pi*(125*4)*x) + 0.2*sin(2*pi*(125*5)*x) "
 Save as WAV file: "harmonics_missing.wav"
 
-# 3. Gliding tone from 300 Hz to 600 Hz over 1 second
-Create Sound from formula: "gliding_tone", 1, 0, 1, 44100, "sin(2*pi*(300 + (300 * x))*x)"
-Save as WAV file: "gliding_tone.wav"
+# Gliding f0s over 1 second
+Create Sound from formula: "glide_01", 1, 0, 1, 44100, "0.75 * sin(2*pi*(300 + (300 * x))*x)"
+Save as WAV file: "glide_01.wav"
 
-# 4. White noise
-Create Sound as pure tone: "white_noise", 1, 0, 1, 44100, 0, 0
-Randomize: 1
-Save as WAV file: "white_noise.wav"
-
-# Create Pink Noise
-Create Sound from formula: "pink_noise", 1, 0, 1, 44100, "randomGauss(0,1)/sqrt(frequency)"
-Save as WAV file: "pink_noise.wav"
-
-# Create Brown Noise
-Create Sound from formula: "brown_noise", 1, 0, 1, 44100, "sum(randomGauss(0,1)) / sqrt(frequency)"
-Save as WAV file: "brown_noise.wav"
+Create Sound from formula: "glide_02", 1, 0, 1, 44100, "0.75 * sin(2*pi*(100 + (300 * x))*x)"
+Save as WAV file: "glide_02.wav"
 
 # Create sine with noise
 Create Sound from formula: "sineWithNoise", 1, 0, 1, 44100, "1/2 * sin(2*pi*377*x) + randomGauss(0,0.1)"
@@ -59,3 +49,6 @@ Save as WAV file: "sineWithNoise.wav"
 # Create the source for source-filter demos
 Create Sound as tone complex: "toneComplex", 0, 1, 44100, "cosine", 100, 100, 22000, 200
 Save as WAV file: "source_1.wav"
+
+
+
