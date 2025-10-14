@@ -47,7 +47,7 @@ Create Sound from formula: "sineWithNoise", 1, 0, 1, 44100, "1/2 * sin(2*pi*377*
 Save as WAV file: "sineWithNoise.wav"
 
 # Create the source for source-filter demos
-Create Sound as tone complex: "toneComplex", 0, 1, 44100, "cosine", 100, 100, 22000, 200
+Create Sound as tone complex: "source_1", 0, 1, 44100, "cosine", 100, 100, 22000, 200
 Save as WAV file: "source_1.wav"
 
 
