@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{caption}
+
+\setstretch{1.2}
+
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+\title{\vspace{-1cm}Using Praat for Formant Analysis}
+\author{Linguistics 422 (Moreton)\thanks{© 2018 Elliott Moreton. Permission to re-publish this document or any part of it in any form is expressly denied without written permission of the copyright holder.}}
+\date{2018 November 13 (T)}
+
+\begin{document}
+
+\maketitle
+
+Good tutorial introductions to vowel-formant measuring can be found in \textit{Ladefoged} (2003) and \textit{Thomas} (2011).
+
+\section{Spectrogram settings}
+
+Ladefoged (2003, Chapter~5) is full of good advice on making spectrograms. However, some of his advice is stated using different units from what Praat expects. In particular, on p.~106, he talks about setting the bandwidth of the spectrogram, and defines the bandwidth as approximately the sampling rate divided by the number of points in the analysis window—i.e., the number of analysis windows which will fit into one second. 
+
+This works differently in Praat, where what you adjust is not the number of points in the window, but the length of the window in time. For the Gaussian window (the bell-shaped default), the “half-power bandwidth” is given by:
+
+\[
+\frac{2\sqrt{6 \ln 2}}{\pi \cdot \text{windowlength}} \approx \frac{1.3}{\text{windowlength}}
+\]
+
+That is, the number of (nominal) windows which will fit into 1.3 seconds (source: Praat manual, at \texttt{Sound: To Spectrogram}).
+
+\section{Overlaying an FFT spectrum on a Fourier spectrum}
+
+\begin{enumerate}[label=\arabic*.]
+    \item You need to give the LPC extractor a maximum frequency above which it should not look for formants. The careful way to do this is to first filter the sound to attenuate anything above the desired maximum frequency:
+    \begin{quote}
+    Select the Sound object and choose \texttt{Filter: Pass Hann band...}, then enter the frequency range you want to keep (e.g., 0 to 5500~Hz).
+    \end{quote}
+    Then resample the sound so that the sampling rate is twice the desired maximum frequency (Ladefoged, 2003, pp.~122–123):
+    \begin{quote}
+    Select the Sound object and choose \texttt{Convert: Resample...}, then enter the new sampling rate.
+    \end{quote}
+    The new rate should be no greater than the old one! You will be rewarded with a new sound called something like \texttt{Sound foo 12000}.
+
+    \item Open the downsampled sound in the Editor, and plunk the cursor on the desired point.
+
+    \item Use \texttt{Spectrum: Spectrogram settings...} to get a narrow-band spectrogram. A good setting for the window length is 0.05~s. What bandwidth does this yield (Ladefoged, 2003, p.~108)?
+
+    \item Use \texttt{Spectrum: View spectral slice}, or whatever shortcut your system provides, to create a spectral slice. It will appear in the Praat Objects Window as something like \texttt{Spectrum foo 12000 8.50}, where the last bit of the name is the location of the cursor in time.
+
+    \item With that Spectrum highlighted in the Objects window, marquee-select a region of the Picture window. The spectral slice will be plotted in that region.
+
+    \item Choose \texttt{Draw: Draw...}. Enter the maximum frequency in the appropriate box. Make sure the \texttt{Garnish} box is checked, and click \texttt{OK}. The spectral slice will appear in the Picture window with labelled axes (the “garnish”).
+
+    \item Now, with the Spectrum still highlighted in the Objects window, click the button that says \texttt{Convert: LPC smoothing...}. Enter the number of peaks (formants) that you want the LPC algorithm to find in the displayed spectral slice, and click \texttt{OK}.
+
+    \item You will see a new Spectrum object in the Objects window. Choose \texttt{Draw: Draw...}, and this time uncheck the \texttt{Garnish} box before plotting (otherwise, you will get an extra set of axes with different labels overplotted on your Fourier spectrum). Ta-da!
+\end{enumerate}
+
+\begin{figure}[h!]
+\centering
+\fbox{\parbox{0.8\linewidth}{
+\textbf{Figure 1.} A Fourier spectrum overlaid with two LPC spectra. The lower one was made using the \texttt{LPC smoothing...} button, with 7 peaks requested. The upper one was made the explicit way, using 14 LPC coefficients and a window length of 0.05~s.
+}}
+\end{figure}
+
+\noindent\textbf{Warning:} The \texttt{LPC smoothing} button is not documented in the Praat manual, so there’s no way to be sure of what it actually does. The documented way of doing this is more complicated, but for completeness:
+
+\begin{enumerate}[label=(\alph*)]
+    \item In the editor, plunk the cursor at the desired time point, make your spectral slice, and draw the resulting Fourier spectrum.
+    \item Write down that time point on a piece of paper.
+    \item Now, with the original Sound object selected, choose \texttt{Formants and LPC: To LPC...}. For \textit{Prediction order}, enter twice the number of peaks (formants) you want the algorithm to look for (Ladefoged, 2003, p.~123). For \textit{Analysis window duration (s)}, enter the length of the analysis window you used to do your Fourier spectrum. Click \texttt{OK}.
+    \item You will see a new LPC object. With it selected, click \texttt{To Spectrum (slice)...}. For \textit{Time (seconds)}, enter the time point you wrote down, and click \texttt{OK}.
+    \item You will get a new Spectrum object containing the LPC spectrum at that point. Use \texttt{Draw} to overlay it on the FFT spectrum, as before. It will be subtly different from what you got with the \texttt{LPC Smoothing...} button.
+\end{enumerate}
+
+\section{High f\textsubscript{0}s}
+
+When f\textsubscript{0} is high, the harmonics are widely spaced and not very informative about the shape of the vocal tract’s response curve. Since the FFT algorithm is dependent on the harmonics, high f\textsubscript{0} can lead to wrong formant estimates. 
+
+\begin{figure}[h!]
+\centering
+\fbox{\parbox{0.8\linewidth}{
+\textbf{Figure 2.} A major scale sung by a female speaker. The first and last vowels are both [oʊ]. The FFT spectra halfway through the two vowels show that F2 is absent in the right-hand panel.
+}}
+\end{figure}
+
+The easiest way to avoid this problem is to avoid high f\textsubscript{0}s in the first place: Use speakers with low-pitched voices, and elicit the vowels in contexts that make a low f\textsubscript{0} likely (low tones, low pitch accents, etc.).
+
+Sometimes it is possible to measure formants even when the harmonics are widely spaced, by looking for non-harmonic clues. Some such clues are present in this example that would allow the formants to be measured accurately even on the last vowel. What are they?
+
+\section*{References}
+
+\begin{itemize}[leftmargin=1.5em]
+    \item Ladefoged, P. (2003). \textit{Phonetic Data Analysis}. Malden, Massachusetts: Blackwell.
+    \item Thomas, E.~R. (2011). \textit{Sociophonetics: An Introduction}. Palgrave Macmillan.
+\end{itemize}
+
+\end{document}
